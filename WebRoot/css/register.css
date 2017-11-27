@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background: url('../img/bg.jpg');
+	background-size: cover;
+}
+
+.boxs {
+	width: 80%;
+	height: auto;
+	color: #fff;
+	padding-top: 10%;
+	padding-left: 10%;
+	padding-right: 10%;	
+}
+.boxs h1 {
+	display: block;
+	width: auto	;
+	font-size: 3.5em;
+	font-famliy:'微软雅黑';
+	float: left;
+	margin-left: 5%;
+}
+
+.boxs .register-box {
+	width:300px;
+	height: 300px;
+	background: rgba(0,0,0,0.4);
+	float: right;
+	margin-right: 5%;
+	box-shadow: 3px 3px 5px #3f4242;
+}
+
+.boxs .register-box form {
+	margin-left:35px;
+	margin-top:20px;
+}
+
+.boxs .register-box input {
+	background: none;
+	border: 1px solid #fff;
+	color: #fff;
+	padding:3px 2px;
+	margin:10px 0;
+}
+
+.boxs .register-box input[type='submit'],
+.boxs .register-box input[type='reset'] {
+	padding:5px 20px;
+}
+
+.boxs .register-box input:focus {
+	background:#fff;
+	color:#000;
+}
