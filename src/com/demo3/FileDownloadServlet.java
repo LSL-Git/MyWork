@@ -19,18 +19,24 @@ public class FileDownloadServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
-	 *
+	 * 
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 接收下载文件名
 		String fileName = request.getParameter("filename");
+		// 转换编码
+		fileName = new String(fileName.getBytes("iso-8859-1"),"UTF-8");
 		System.out.println("下载文件名：" + fileName);
 
 		OutputStream os = response.getOutputStream();
@@ -41,21 +47,28 @@ public class FileDownloadServlet extends HttpServlet {
 			os.close();
 			return;
 		}
+		
 		// 获取本地文件输入流
-		InputStream is = context.getResourceAsStream("/WEB-INF/lib/" + fileName);
+		InputStream is = context
+				.getResourceAsStream("/WEB-INF/lib/" + fileName);
+		
+		// 转换编码
+		fileName = new String(fileName.getBytes("UTF-8"),"iso-8859-1");
+		
 		// 获取文件字节大小
 		int len = is.available();
 		// 设置响应正文的MIME类型
 		response.setContentType("application/force-download");
 		response.setHeader("Content-Length", String.valueOf(len));
-		response.setHeader("Content-Disposition", "attachment;filename=\"" + fileName + "\"");
+		response.setHeader("Content-Disposition", "attachment;filename=\""
+				+ fileName + "\"");
 		// 本地文件输出到客户端
 		byte[] bytearr = new byte[1024];
 		int byteread = 0;
-		while((byteread = is.read(bytearr)) != -1) {
-			os.write(bytearr,0,byteread);
+		while ((byteread = is.read(bytearr)) != -1) {
+			os.write(bytearr, 0, byteread);
 		}
-		
+
 		os.flush();
 		is.close();
 	}

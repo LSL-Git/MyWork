@@ -62,6 +62,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td><input type="password" name="upsw"/></td>
 			</tr>
 			<tr>
+				<td colspan="2">
+					<input type="checkbox" value="check" name="check" checked="checked"/>记住密码
+				</td>
+			</tr>
+			<tr>
 				<td><input type="submit" value="登录"/></td>
 				<td><input type="reset" value="取消"/></td>
 			</tr>

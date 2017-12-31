@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class CheckUserServlet extends HttpServlet {
 
 	/**
@@ -86,7 +87,9 @@ public class CheckUserServlet extends HttpServlet {
 			}
 			message = "µÇÂ½³É¹¦!";
 			request.getSession().setAttribute("message", message);
-			response.sendRedirect("ch3/welcome.jsp");
+//			response.sendRedirect("ch3/welcome.jsp");
+			response.getWriter().write("<script>window.location.href='ch3/welcome.jsp'</script>");
+			return;
 		}
 	}
 

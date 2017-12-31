@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page isErrorPage="true" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,14 +17,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!-- 设置5秒后跳转回主页
-	<meta http-equiv="Refresh" content="5;URL=/MyWork/">-->
+	<!-- 设置5秒后跳转回主页-->
+	<meta http-equiv="Refresh" content="6;URL=/MyWork/">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	
 	<script type="text/javascript">
-		var i = 5;
+		var i = 6;
 		// 倒计时
 		function init()
 		{
@@ -44,5 +45,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     ${message} <br>
     <h3 id="t"></h3>
     <a href="/MyWork/">主页</a>
+    <p>下面为异常信息：<%=exception.getMessage() %></p>
   </body>
 </html>

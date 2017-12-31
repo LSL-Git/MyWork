@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+body {
+	background: url('../img/bg.jpg');
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: #4b4f5b;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f2671b;
+}
+
+table {
+	background: #fff;
+	width: 80%;
+	margin: 0 auto;
+	box-shadow: 2px 2px 5px #000;
+	padding-bottom: 20px;
+	
+	#pointer-events: none; # 禁止点击
+}
+
+.p {
+	padding-left: 20px;
+}

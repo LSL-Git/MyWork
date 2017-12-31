@@ -76,14 +76,22 @@
     <servlet-name>CheckUserServlet</servlet-name>
     <servlet-class>com.demo3.CheckUserServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>javaBeans</display-name>
+    <servlet-name>CustomerServlet</servlet-name>
+    <servlet-class>com.demo4.CustomerServlet</servlet-class>
+  </servlet>
 
 
 
 
 
 
-
-
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>/CustomerServlet.do</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/servlet/HelloServlet.do</url-pattern>
@@ -142,4 +150,40 @@
   <session-config>
   	<session-timeout>10</session-timeout>
   </session-config>
+  
+  <!-- 设置初始化参数 -->
+  <servlet>
+  	<servlet-name>initTestServlet</servlet-name>
+  	<jsp-file>/ch4/initTest.jsp</jsp-file>
+  	<init-param>
+  		<param-name>company</param-name>
+  		<param-value>Beijing New Techonology CO.,LTD</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>email</param-name>
+  		<param-value>www.lsl@yahoo.com.cn</param-value>
+  	</init-param>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>查询access数据库内容,连接方式 ODBC</display-name>
+    <servlet-name>QueryProductServlet</servlet-name>
+    <servlet-class>com.demo7.QueryProductServlet</servlet-class>
+  </servlet>
+
+
+
+  
+  <!-- 指定初始化参数映射页面  -->
+  <servlet-mapping>
+  	<servlet-name>initTestServlet</servlet-name>
+  	<url-pattern>/ch4/initTest.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryProductServlet</servlet-name>
+    <url-pattern>/QueryProductServlet.do</url-pattern>
+  </servlet-mapping>
+
+  
+  
 </web-app>
